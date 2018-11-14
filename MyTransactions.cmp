@@ -31,7 +31,7 @@
                         <div class="slds-truncate" title="ID__c">ID</div>
                     </th>
                     <th scope="col" class="slds-cell-wrap">
-                        <div class="slds-truncate" title="Amount_USD">Amount (USD)</div>
+                        <div class="slds-truncate" title="Amount_USD">Amount</div>
                     </th>
                     <th scope="col" class="slds-cell-wrap">
                         <div class="slds-truncate" title="Type">Type</div>
@@ -49,12 +49,6 @@
                         </td>
                         <td data-label="Type" class="slds-cell-wrap">
                             <div class="slds-truncate" title="Type">{!myOutput.Type__c}</div>
-                        </td>
-                        <td role="gridcell">
-                            <button class="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small" tabindex="-1" title="Show More">
-                                <lightning:icon iconName="utility:down" size="xx-small"/>
-                                <span class="slds-assistive-text">Show More</span>
-                            </button>
                         </td>
                     </tr>
                 </aura:iteration>
