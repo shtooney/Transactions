@@ -1,0 +1,69 @@
+<aura:component controller="GrabMyTransactions" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:handler name="init" action="{!c.myAction}" value="{!this}" />
+    <aura:attribute name="myOutputs" type="Transaction__b[]" />
+    <aura:attribute name="recordId" type="Id" />
+
+    <article class="slds-card slds-card_boundary">
+        <div class="slds-card__header slds-grid">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__figure">
+                    <span>                
+                        <lightning:icon iconName="standard:partner_fund_allocation" size="small"/>
+                    </span>
+                </div>
+                <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                        <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="Transactions">
+                            <span class="slds-text-heading_small">Transactions</span>
+                        </a>
+                    </h2>
+                </div>
+                <div class="slds-no-flex">
+                    <button class="slds-button slds-button_neutral">New</button>
+                </div>
+            </header>
+        </div>
+        
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+            <thead>
+                <tr class="slds-text-title_caps">
+                    <th scope="col" class="slds-cell-wrap">
+                        <div class="slds-truncate" title="ID__c">ID</div>
+                    </th>
+                    <th scope="col" class="slds-cell-wrap">
+                        <div class="slds-truncate" title="Amount_USD">Amount (USD)</div>
+                    </th>
+                    <th scope="col" class="slds-cell-wrap">
+                        <div class="slds-truncate" title="Type">Type</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.myOutputs}" var="myOutput">
+                    <tr>
+                        <th scope="row" data-label="ID__c" class="slds-cell-wrap">
+                            <div class="slds-truncate" title="ID__c"><a href="javascript:void(0);">{!myOutput.ID__c}</a></div>
+                        </th>
+                        <td data-label="Amount" class="slds-cell-wrap">
+                            <div class="slds-truncate" title="Amount">${!myOutput.Amount__c}</div>
+                        </td>
+                        <td data-label="Type" class="slds-cell-wrap">
+                            <div class="slds-truncate" title="Type">{!myOutput.Type__c}</div>
+                        </td>
+                        <td role="gridcell">
+                            <button class="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small" tabindex="-1" title="Show More">
+                                <lightning:icon iconName="utility:down" size="xx-small"/>
+                                <span class="slds-assistive-text">Show More</span>
+                            </button>
+                        </td>
+                    </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+        <footer class="slds-card__footer">
+            <a class="slds-card__footer-action" href="javascript:void(0);">View All
+                <span class="slds-assistive-text">Financial Transactions</span>
+            </a>
+        </footer>        
+    </article>
+</aura:component>
